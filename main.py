@@ -81,7 +81,7 @@ class xbeeModule(object):
 						temp_2.pop(0)
 					self.error_cnt = 0 # system error counter
 			except Exception as err:
-				method = '@xbeeModule start_ method has an error: '
+				method = '@error xbeeModule: start_: '
 				log_error(method,err)
 				self.coor = port_initialize('mac') # if error occur then re-initial the port
 				self.error_cnt += 1
