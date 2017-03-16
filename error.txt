@@ -1,0 +1,8 @@
+2017-03-16 09:16:14.723476,error @m_control method grab_sensor_data(),[Errno 6] Device not configured
+2017-03-16 09:16:14.724016,@xbeeModule start_ method has an error: ,'NoneType' object has no attribute '__getitem__'
+2017-03-16 09:16:14.732235,error @initial_port module: port_initialize(),[Errno 2] could not open port /dev/tty.usbserial-DN018QQK: [Errno 2] No such file or directory: '/dev/tty.usbserial-DN018QQK'
+2017-03-16 09:16:17.733687,error @m_control method grab_sensor_data(),'NoneType' object has no attribute 'wait_read_frame'
+2017-03-16 09:16:17.733949,@xbeeModule start_ method has an error: ,'NoneType' object has no attribute '__getitem__'
+2017-03-16 09:16:17.742315,error @initial_port module: port_initialize(),[Errno 2] could not open port /dev/tty.usbserial-DN018QQK: [Errno 2] No such file or directory: '/dev/tty.usbserial-DN018QQK'
+2017-03-16 09:16:20.743790,error @m_control method grab_sensor_data(),'NoneType' object has no attribute 'wait_read_frame'
+2017-03-16 09:16:20.744070,@xbeeModule start_ method has an error: ,'NoneType' object has no attribute '__getitem__'

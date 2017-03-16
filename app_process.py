@@ -1,5 +1,6 @@
 import time, datetime
 from error_handle import log_error
+
 def display_temp(raw_data): #read raw temp date from 'IO data sample RX indicator'
 # calculate the temperature by using formula from the sensor data sheet
     try:
@@ -11,6 +12,7 @@ def display_temp(raw_data): #read raw temp date from 'IO data sample RX indicato
         method = '@app_process module has display_temp error: '
         log_error(method,err)
         # print 'error at display_temp():',err
+        
 def humidity_fun(raw_data, temp): #read raw temp date from 'IO data sample RX indicator'
 # calculate the temperature by using formula from the sensor data sheet
     try:
@@ -21,5 +23,5 @@ def humidity_fun(raw_data, temp): #read raw temp date from 'IO data sample RX in
         # print "Vout: %f, RH: %f" % voltage, sensorRH
         return round(sensorRH, 2)
     except Exception as err:
-        method = 'humidity_fun: '
+        method = '@app_process module has humidity_fun: '
         log_error(method,err)

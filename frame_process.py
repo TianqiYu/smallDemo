@@ -1,34 +1,30 @@
-def grab_analog_data(frame, pri_flag): 
-#read raw temp date from 'IO data sample RX indicator'
-    try:
-        if pri_flag:
-            print 'frame: ',frame
-        if  frame['id'] == 'rx_io_data_long_addr' :
-            data = frame['samples'][0]
-            return data
-        elif frame['id'] == 'remote_at_response':
-            data = frame['parameter'][0]
-            return data
-        else:
-            return -1, 0
-    except Exception as err:
-        return False
 
-# def ni_detect(cmd): #cmd , [address, frame id, parameter]
-#     address, cmd, parameter = cmd
-#     print address.encode('hex'), cmd, parameter
-#     response = coor.wait_read_frame()
-#     if response['id'] = 'NI':
-#         if response['source_addr_long'] == address:
-#             coor.remote_at(# API
-#                             dest_addr_long=address,
-#                             frame_id= '\x01',
-#                             command=cmd,
-#                             parameter = parameter
-#                             )
-#             response = coor.wait_read_frame()
-#             if response['id'] == 'status':
-#                 if response['status'] == '\x00':
-#                     return True
-#                 else:
-#                     return False
+
+def change_xbee_pins(coor, led_, switch, xbee_addr='\x00\x13\xA2\x00\x40\xE9\x64\x30'): 
+	if led_ == 'green': # select led
+		cmd = 'D2'
+	else:
+		cmd = 'D1'
+	if switch == 'ON': # select switch
+		para = '\x05'
+	else:
+		para = '\x04'
+	coor.remote_at(# XBee API, these command are from Zigbee library doc or you can get them from xbee datasheet
+					dest_addr_long=xbee_addr,
+					frame_id= '\x01',
+					command=cmd,
+					parameter = para
+					)
+	coor.remote_at(# API
+					dest_addr_long=xbee_addr,
+					command='WR'
+					)
+
+# xbee.remote_at(
+#     dest_addr='\x56\x78',
+#     command='D2',
+#     parameter='\x04')
+
+# xbee.remote_at(
+#     dest_addr='\x56\x78',
+#     command='WR')
